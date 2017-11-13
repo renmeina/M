@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <include file="struts/dept.xml"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.objectFactory" value="spring"/>
+
+
+
+    <package name="staff"
+             extends="json-default">
+        <action name="staffAction_home" class="com.lanou3g.staff.action.StaffAction" method="home">
+            <result name="home">/pages/frame.jsp</result>
+        </action>
+
+        <action name="staffAction_login"
+                class="com.lanou3g.staff.action.StaffAction"
+                method="login">
+            <result name="success" type="redirectAction">staffAction_home</result>
+            <result name="input">/pages/login.jsp</result>
+        </action>
+
+        <action name="staffAction_findAll"
+                class="com.lanou3g.staff.action.StaffAction"
+                method="findAll">
+            <result name="findAll">/pages/staff/listStaff.jsp</result>
+        </action>
+
+        <action name="staffAction_edit"
+                class="com.lanou3g.staff.action.StaffAction"
+                method="staffEdit">
+            <result name="edit">/pages/staff/editStaff.jsp</result>
+        </action>
+
+
+
+    </package>
+</struts>

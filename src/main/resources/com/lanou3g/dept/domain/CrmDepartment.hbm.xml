@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanou3g.dept.domain">
+    <class name="CrmDepartment"
+           table="crm_department">
+        <id name="depId" column="depId">
+            <generator class="native"/>
+        </id>
+        <property name="depName"/>
+        <!--部门与职位-->
+
+        <set name="posts"
+             table="crm_post"
+             cascade="save-update"
+             inverse="true">
+            <key column="depId"/>
+            <one-to-many class="com.lanou3g.post.domain.CrmPost"/>
+        </set>
+
+
+        <!--部门与员工的一对多-->
+        <set name="staffs"
+        table="crm_staff"
+        cascade="save-update"
+        inverse="true">
+        <key column="depId"></key>
+        <one-to-many class="CrmStaff"/>
+        </set>
+    </class>
+</hibernate-mapping>

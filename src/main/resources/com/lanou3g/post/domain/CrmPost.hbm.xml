@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanou3g.post.domain">
+    <class name="com.lanou3g.post.domain.CrmPost" table="crm_post">
+        <id name="postId" column="postId">
+            <generator class="native"/>
+        </id>
+        <property name="postName"/>
+        <!-- 职务和部门的关系: 多对一  -->
+        <many-to-one name="departments"
+                     class="CrmDepartment"
+                     column="depId"
+                     cascade="save-update">
+        </many-to-one>
+
+        <!--职位对员工 一对多-->
+        <set name="staffs"
+             table="crm_staff"
+             cascade="save-update"
+             inverse="true">
+            <key column="postId"></key>
+            <one-to-many class="CrmStaff"/>
+        </set>
+    </class>
+</hibernate-mapping>
