@@ -6,22 +6,39 @@
 <struts>
 
     <include file="struts/dept.xml"/>
+    <include file="struts/post-struts.xml"/>
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="false"/>
     <constant name="struts.objectFactory" value="spring"/>
 
+    <package name="base" extends="json-default">
 
+        <interceptors>
 
-    <package name="staff"
-             extends="json-default">
-        <action name="staffAction_home" class="com.lanou3g.staff.action.StaffAction" method="home">
-            <result name="home">/pages/frame.jsp</result>
-        </action>
+            <interceptor name="loginInterceptor" class="com.lanou3g.staff.web.interceptor.LoginInterceptor">
+                <param name="excludeMethods">login</param>
+            </interceptor>
 
-        <action name="staffAction_login"
-                class="com.lanou3g.staff.action.StaffAction"
+            <interceptor-stack name="crmInterceptorStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+        </interceptors>
+
+        <!--<default-interceptor-ref name="crmInterceptorStack"/>-->
+
+    </package>
+
+    <package name="staff" extends="base">
+        <!--<action name="staffAction_home" class="com.lanou3g.staff.action.StaffAction" method="home">-->
+            <!--<result name="home">/pages/frame.jsp</result>-->
+        <!--</action>-->
+
+        <action name="staffAction_login" class="com.lanou3g.staff.action.StaffAction"
                 method="login">
-            <result name="success" type="redirectAction">staffAction_home</result>
+            <!--<interceptor-ref name="crmInterceptorStack"/>-->
+            <result name="success">/pages/frame.jsp</result>
             <result name="input">/pages/login.jsp</result>
         </action>
 

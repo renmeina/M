@@ -48,9 +48,6 @@ public class StaffAction extends BaseAction<CrmStaff, StaffService> {
         return "edit";
     }
 
-
-
-
     public CrmStaff getStaff() {
         return staff;
     }

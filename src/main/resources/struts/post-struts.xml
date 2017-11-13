@@ -7,8 +7,22 @@
 <struts>
     <package name="post" extends="json-default">
     <default-class-ref class="com.lanou3g.post.action.PostAction"/>
+
     <action name="postQuery" method="query">
         <result name="success">/pages/post/listPost.jsp</result>
     </action>
+
+        <action name="saveOrUpdate" method="saveOrUpdate">
+            <result name="success" type="chain">postQuery</result>
+        </action>
+        <action name="postEdit">
+            <result name="success">/pages/post/addOrEditPost.jsp</result>
+        </action>
+
+        <action name="postDeptQuery"
+                class="com.lanou3g.dept.action.DeptAction"
+                method="query">
+            <result name="success">/pages/post/addOrEditPost.jsp</result>
+        </action>
     </package>
 </struts>

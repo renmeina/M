@@ -11,4 +11,5 @@ import java.util.List;
 
 public interface DeptService {
     List<CrmDepartment> query();
+    void saveOrUpdate(CrmDepartment crmDepartment);
 }

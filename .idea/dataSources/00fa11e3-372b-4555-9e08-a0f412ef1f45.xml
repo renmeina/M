@@ -94,15 +94,18 @@
     <column id="47" parent="31" name="postId">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="48" parent="31" name="FKtrgxem3u7h6d33d9hpymksl01">
+    <column id="48" parent="31" name="depId">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="49" parent="31" name="FKtrgxem3u7h6d33d9hpymksl01">
       <columns>postId</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="49" parent="31" name="PRIMARY">
+    <key id="50" parent="31" name="PRIMARY">
       <columns>staffId</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="50" parent="31" name="FKtrgxem3u7h6d33d9hpymksl01">
+    <foreign-key id="51" parent="31" name="FKtrgxem3u7h6d33d9hpymksl01">
       <columns>postId</columns>
       <ref-key>~.crm_post.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>

@@ -10,9 +10,9 @@
         <property name="postName"/>
         <!-- 职务和部门的关系: 多对一  -->
         <many-to-one name="departments"
-                     class="CrmDepartment"
+                     class="com.lanou3g.dept.domain.CrmDepartment"
                      column="depId"
-                     cascade="save-update">
+                     >
         </many-to-one>
 
         <!--职位对员工 一对多-->
@@ -21,7 +21,7 @@
              cascade="save-update"
              inverse="true">
             <key column="postId"></key>
-            <one-to-many class="CrmStaff"/>
+            <one-to-many class="com.lanou3g.staff.domain.CrmStaff"/>
         </set>
     </class>
 </hibernate-mapping>

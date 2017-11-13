@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by dllo on 17/11/2.
  */
 public class CrmPost {
-    private int postId;
+    private String  postId;
     private String postName;
 
     private CrmDepartment departments;
@@ -39,11 +39,11 @@ public class CrmPost {
                 '}';
     }
 
-    public int getPostId() {
+    public String getPostId() {
         return postId;
     }
 
-    public void setPostId(int postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 

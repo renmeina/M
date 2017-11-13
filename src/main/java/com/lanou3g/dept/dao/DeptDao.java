@@ -11,4 +11,6 @@ import java.util.List;
 
 public interface DeptDao {
     List<CrmDepartment> query();
+
+    void  saveOrUpdate(CrmDepartment crmDepartment);
 }

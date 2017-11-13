@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 public class DeptServiceImpl implements DeptService {
-
+@Resource
     private DeptDao deptDao;
 
     @Override
@@ -21,7 +21,13 @@ public class DeptServiceImpl implements DeptService {
         return deptDao.query();
     }
 
-    public void setDeptDao(DeptDao deptDao) {
+    @Override
+    public void saveOrUpdate(CrmDepartment crmDepartment) {
+         deptDao.saveOrUpdate(crmDepartment);
+    }
+
+
+    public void setDeptDao(DeptDao deptDao)   {
         this.deptDao = deptDao;
     }
 }

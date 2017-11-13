@@ -29,9 +29,15 @@
     <bean id="staffDao" class="com.lanou3g.staff.dao.impl.StaffDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <bean id="staffService" class="com.lanou3g.staff.service.impl.StaffServiceImpl">
+        <property name="staffDao" ref="staffDao"></property>
+    </bean>
+
     <bean id="deptDao" class="com.lanou3g.dept.dao.impl.DeptDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
     <bean id="deptService" class="com.lanou3g.dept.service.impl.DeptServiceImpl">
         <property name="deptDao" ref="deptDao"/>
     </bean>

@@ -5,20 +5,21 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 
-    <package name="login" extends="json-default">
-        <action name="login"
-                class="com.lanou3g.dept.action.DeptAction"
-                method="query">
-            <result name="success">/pages/frame.jsp</result>
-            <result name="error">/pages/error.jsp</result>
-        </action>
-    </package>
     <package name="dept" extends="json-default">
         <default-class-ref class="com.lanou3g.dept.action.DeptAction"/>
         <action name="deptQuery"
                 method="query">
             <result name="success">/pages/department/listDepartment.jsp</result>
         </action>
+        <action name="deptSave"  method="saveOrUpdate">
+            <result name="success" type="chain">deptQuery</result>
+            <result name="input">/pages/error.jsp</result>
+        </action>
+
+        <action name="deptEdit" >
+            <result name="success">/pages/department/addOrEditDepartment.jsp</result>
+        </action>
+
     </package>
 
 </struts>

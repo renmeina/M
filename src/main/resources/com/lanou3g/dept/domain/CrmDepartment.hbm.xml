@@ -26,7 +26,7 @@
         cascade="save-update"
         inverse="true">
         <key column="depId"></key>
-        <one-to-many class="CrmStaff"/>
+        <one-to-many class="com.lanou3g.staff.domain.CrmStaff"/>
         </set>
     </class>
 </hibernate-mapping>
