@@ -12,7 +12,7 @@ public interface StaffService {
 
     List<CrmStaff> findAllStaff();
 
-    CrmStaff findById(int staffId);
+//    CrmStaff findById(String staffId);
 
 
 }
